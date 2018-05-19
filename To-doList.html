@@ -1,0 +1,90 @@
+<html>
+<head>
+<style>
+
+#site-navigation ul  {
+    text-align: center;
+    background-color:lightblue;
+			width:auto;
+			height:50px;
+			padding: 8px 0 6px;
+    }
+    #site-navigation ul li {
+    display:inline-block;
+    position:relative;
+    
+}
+#site-navigation ul li a {
+    
+    
+    
+margin: 11px 25px 10px;
+display: block;
+text-decoration: none;
+float: left;
+text-transform: uppercase;
+
+font-size: 1.6rem;
+
+
+    
+    
+}
+		</style>
+<title>To-Do List</title>
+<div class="container" style="align-items: ;">
+		<div class="row">
+			<div class="col-xs-12">
+				<nav id="site-navigation" role="navigation">
+					<div class="menu-menu-1-container"><ul id="menu-menu-2" class="nav-menu">
+<ul class="sub-menu">
+	<li><a href="index.html"> Homepage </a></li>
+	<li><a href="game.html">Game</a></li>
+	<li><a href="link.html">Catherine's recipes</a></li>
+	<li><a href="A8MiTunes.html">Birds</a></li>
+	<li><a href="To-doList.html">To do list</a></li>
+	
+</ul>
+
+
+</ul></div>				</nav><!-- #site-navigation end -->
+				
+			</div>
+		</div>
+	</div>
+
+
+</head>
+
+<body>
+<p>Website To-Do List</p>
+<input id="task" type='text' placeholder='Type here to add task'/>
+<br><br>
+<input type='button' onclick='addItem();' value='Add Item' style="cursor:pointer"/>
+<div id="list"></div>
+<script>
+
+
+
+
+
+  function addItem() {
+   var newItem = document.createElement("div");
+    newItem.innerHTML = document.getElementById("task").value;
+    newItem.onclick = removeItem;
+    newItem.style="cursor:pointer";
+    document.getElementById("list").appendChild(newItem);
+    
+   }
+  function removeItem() {
+  
+   document.getElementById("list").removeChild(this);
+  }
+ 
+
+
+
+</script>
+
+</body>
+</html>
