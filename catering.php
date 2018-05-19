@@ -1,41 +1,3 @@
-<!DOCTYPE html >
-<html xml:lang="en" lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<style type="text/css">
-body {
-	font-family: "Apple Chancery", Times, serif;
-	background-color: #D6D6D6;
-}
-.center {
-	text-align:center;
-}
-body,td,th {
-	color: #06F; 
-}
-.larger {
-	font-size:larger;
-	text-align:right;
-}
-table {
-	margin-left:auto;
-	margin-right:auto;
-}
-
-
-</style>
-<title>Task 1</title>
-</head>
-
-<body>
-<h3 class="center">COA123 - Server-Side Programming</h3>
-<h2 class="center">Individual Coursework - Wedding Planner</h2>
-<h1 class="center">Task 1 - Catering (catering.php)</h1>
-
-<br/>
-
-<table border="1">
 
 <?php 
 if(isset($_GET['submit'])) {
@@ -48,7 +10,7 @@ if(isset($_GET['submit'])) {
 	$c5=$_GET['c5'];
 
 
-
+echo "<table>";
 
 if(is_numeric($max) && is_numeric($max) && is_numeric($c1) && is_numeric($c2) && is_numeric($c3) && is_numeric($c4) && is_numeric($c5)){
 
@@ -91,10 +53,9 @@ echo '<td class="cell2">'.$array[$o]*$cs[$j-1].'</td>';
 }
 
 }else echo "Sorry, one of your values is not valid. Please ensure they are all numbers.";
-
+echo "</table>";
 }
 ?>
-</table>
 
-<br />
+
 
