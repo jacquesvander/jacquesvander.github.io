@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.banner {
+            background: url(headerBanner.jpg);
+            background-size: cover;
+            width: auto;
+            height: 400px;
+            text-align: center;
+            font-size: 52px;
+            padding-top: 75px;
+        }
+.menu {
+			background-color:lightblue;
+			width:auto;
+			height:50px;
+			font-size:40px;
+			text-align:center;
+		}
+.content{
+ 			width:auto;
+ 			padding:50px;
+ 			font-size:25px;
+ 			text-align:center;
+ 		}
+.button{
+			height:40px;
+			padding:5px;
+			background-color:yellow;
+			text-align:center;
+			font-size:20px;
+			cursor:pointer;
+			
+		}
+.footer {
+            width: auto;
+            height: 120px;
+            padding: 50px;
+            text-align: center;
+            font-size: 20px;
+        color: #1806E8;
+        }
+        
+
+
+
+.Menu{
+font-size:30px;
+cursor:pointer;
+
+}
+.overlay {
+    height: 100%;
+    width:0;
+    
+    position: fixed;
+    background-color:black;
+    
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    
+    
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    text-transform:uppercase
+    
+    
+}
+.overlay a:hover{
+color:white
+}
+
+
+.closebtn {
+    position: absolute;
+    right:45px;
+    font-size: 50px;
+    cursor:pointer;
+}
+.Menu{
+font-size:30px;
+cursor:pointer;
+text-align:center;
+background-color:lightblue;
+width:100%
+
+}
+
+
+</style>
+ <title>Homepage</title>
+</head>
+<body>
+
+
+				
+		
+<div id="myNav" class="overlay">
+  <a  class="closebtn" onclick="closeNav();">&times;</a>
+  <div class="overlay-content">
+    <a href="index.html"> Homepage </a>
+    <a href="game.html">Game</a>
+    <a href="link.html">Catherine's recipes</a>
+    <a href="A8MiTunes.html">Birds</a>
+    <a href="To-doList.html">To do list</a>
+  </div>
+</div>
+
+<div class="Menu" onclick="openNav()">
+MENU</div>
+
+<script>
+function openNav() {     
+    document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+}
+</script>
+<div class="banner">
+The Monk Diamond<br/><br/>
+<div style="font-size: 32px;">An extraordinary exhibition</div>
+</div>
+
+<div class='content'><p>The Monk Diamond is one of the rarest and most valuable diamonds in Europe.<br/>
+        It has a fascinating history. It was owned by Russian nobility, stolen by a famous criminal gang
+        and then found hidden in remote mountains in one of the most sensational discoveries of
+        the century.<br/>Find out more about the Monk Diamond in this website or come and see it for
+        yourself at the House of Volkov in Moscow.
+    </p>
+    <form action="A8MiTunes.html">
+    <input type="submit" value="Listen to the delightful sound of bird songs" class='button'/>
+</form>
+    
+    </div>
+    <div class="footer">
+    Contact Professor Bairstone: profbairstone@intrepidexplorer.com
+    </div>
+</body>
+</html>

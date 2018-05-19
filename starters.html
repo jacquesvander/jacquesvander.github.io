@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>recipes page</title>
+</head>
+<body>
+<div id="pane1"></div>
+<script src=recipe.js></script>
+ <script>
+ function pane(){
+
+ 	var b;
+  
+	for(c=0;c<recipes.length;c++){
+	for(y=0;y<recipes[c].starters.length;y++){
+	 b+="<img src='"+recipes[c].starters[y].image+"'><br/>";
+      b+="<a href='"+recipes[c].starters[y].recipe+"'>"+recipes[c].starters[y].food+"</a>";
+    }
+    }
+    document.getElementById("pane1").innerHTML=b
+    } 
+    pane();
+ </script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<html>
+<head>
+ 
+  <style>
+ body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+}
+
+#leftpane {
+    width: 32.9%;
+    height: 60%;
+    float: left;
+    background-color: orange;
+    border-style: solid;
+      overflow:scroll;
+}
+
+#middlepane {
+    width:32.9%;
+    height: 60%;
+    float: left;
+    background-color: red;
+      overflow:scroll;
+    border-style: solid;
+}
+
+#rightpane {
+  width: 32.9%;
+  height: 60%;
+  float: left;
+  background-color: blue;
+  border-style: solid;
+      overflow:scroll;
+}
+
+#keyboard {
+  width: 100%;
+  height: 40%;
+  float:left;
+  position:relative;
+  background-color: green;
+  border-style: none;
+      text-align:center;
+}
+  
+#space {
+height:40px;
+    width:400px;
+ }
+.userSelect{
+background-color:white;
+font-size:25px;
+}
+.letter {
+height:30px;
+width:30px;
+}
+#back1 {
+height: 40px;
+width:60px;
+} 
+#reset {
+height: 40px;
+width:60px;
+} 
+#text {
+height:60px;
+width:400px;
+font-size:25px;
+}
+
+#site-navigation ul  {
+    text-align: center;
+    background-color:lightblue;
+			width:auto;
+			height:50px;
+			padding: 8px 0 6px;
+    }
+    #site-navigation ul li {
+    display:inline-block;
+    position:relative;
+    
+}
+#site-navigation ul li a {
+    
+    
+    
+margin: 11px 25px 10px;
+display: block;
+text-decoration: none;
+float: left;
+text-transform: uppercase;
+
+font-size: 1.6rem;
+
+
+    
+    
+}
+
+
+
+  
+  </style>
+
+
+
+<script type="text/javascript" src="music.js"></script>
+
+  
+
+  <script type='text/javascript' >
+   function pane_1(){
+
+ 	var b;
+  b="<label>Albums</label><br><select id='selectAlbum' class='userSelect' size='"+albums.length+"' onchange='pane_2()'>"
+	for(c=0;c<albums.length;c++){
+      b+="<option value='"+c+"'>"+albums[c].artist+"/"+albums[c].title+"</option>";
+    }
+    
+  b +="</select>";
+
+  document.getElementById("leftpane").innerHTML=b;
+    
+     
+    } 
+      </script>
+    
+  <script type='text/javascript' >
+    function pane_2(){
+    
+    var selAlbum= document.getElementById("selectAlbum");
+    
+    for(x=0;x<albums.length;x++){
+      currentAlbum=selAlbum[x];
+      if(currentAlbum.selected == true){
+      	
+        	var result="<label>"+albums[x].artist+"<br><br>"+albums[x].title+"</label><br><br><select id='selectSong' class='UserSelect' size='"+albums[x].tracks.length+"' onchange='pane_3()'>"
+        	for(s=0;s<albums[x].tracks.length;s++){
+      			result+="<option value='"+s+"'>"+albums[x].tracks[s].title+"</option>";
+      }
+    }
+    }
+    
+      result+="</select>";
+      document.getElementById("middlepane").innerHTML = result;
+    }
+     
+      
+</script>
+
+  <script type ='text/javascript' >
+    function pane_3(){
+      var selSong= document.getElementById("selectSong");
+    var selAlbum= document.getElementById("selectAlbum");
+    
+    for(w=0;w<albums.length;w++){
+      currentAlbum=selAlbum[w];
+      if(currentAlbum.selected == true){
+      output="<img src='artwork/"+albums[w].artwork+".jpg'>";
+    for(f=0;f<albums[w].tracks.length;f++){
+      currentSong=selSong[f];
+      if(currentSong.selected == true){
+      
+        
+                output+="<br><br><audio controls='controls'><source src='audio/"+albums[w].artist+"/"+albums[w].title+"/"+albums[w].tracks[f].mp3+"' type='audio/mpeg'></audio>"
+                output+="<strong><br><br>"+albums[w].tracks[f].title+"<br><br>"+albums[w].tracks[f].lyrics+"</strong>"
+                
+                
+        }
+  
+    }
+    }
+      }
+    
+      output+="</audio>";
+      document.getElementById("rightpane").innerHTML = output;
+    }
+  </script>
+
+<script>
+(function() {
+   'use strict';
+   var i,c;
+function init(){ 
+/* get all the input elements within the div whose id is "keyboard */
+   i=document.getElementById('keyboard').getElementsByTagName('input'); 
+/* loop through all the elements */   
+for(c=0;c<i.length;c++) {
+/* find all the the input type="button" elements */
+if(i[c].type==='button') { 
+ /* add an onclick handler to each of them  and set the function to call */
+   i[c].addEventListener('onclick',makeClickHandler(c));
+   }
+  }
+
+/* this is the type="reset" input */
+document.getElementById('reset').onclick=function() {
+/* remove all the characters from the input type="text" element */
+   document.getElementById('text').value='';
+  }
+ }
+
+function makeClickHandler(c) {
+   i[c].onclick=function() {
+/* find the non-text button  which has an id */
+if(i[c].id==='back1') {
+/* remove last character from the input the type="text" element using regular expression */
+   document.getElementById('text').value=
+   document.getElementById('text').value.replace(/.$/,'');
+ }
+/* find the text buttons */
+else {
+/* add characters to the input type="text" element */
+   document.getElementById('text').value+=this.value.toLowerCase();
+   }
+  };
+ }
+
+   window.addEventListener?
+   window.addEventListener('load',init,false):
+   window.attachEvent('onload',init);
+})();
+</script>
+<div class="container" style="align-items: ;">
+		<div class="row">
+			<div class="col-xs-12">
+				<nav id="site-navigation" role="navigation">
+					<div class="menu-menu-1-container"><ul id="menu-menu-2" class="nav-menu">
+<ul class="sub-menu">
+	<li><a href="index.html"> Homepage </a></li>
+	<li><a href="game.html">Game</a></li>
+	<li><a href="link.html">Catherine's recipes</a></li>
+	<li><a href="A8MiTunes.html">Birds</a></li>
+	<li><a href="To-doList.html">To do list</a></li>
+	
+</ul>
+
+
+</ul></div>				</nav><!-- #site-navigation end -->
+				
+			</div>
+		</div>
+	</div>
+  </head>
+  
+  <body>
+  <div id="container">
+  <div  id="leftpane" >
+    <body onload ="pane_1()"></body>
+    </div>
+  <div id="middlepane">
+    <body onload="pane_2()"></body>
+    </div>
+  <div id="rightpane">
+    <body onload="pane_3()"></body>
+    </div>
+    <div id="keyboard">
+    <body onload="init()">
+ <br><br>
+ <input class="letter" type="button" id="A" value="A">
+ <input class="letter" type="button" id='B' value="B">
+ <input class="letter" type="button" id='C' value="C">
+ <input class="letter" type="button" id='D' value="D">
+ <input class="letter" type="button" id='E' value="E">
+ <input class="letter" type="button" id='F' value="F">
+ <input class="letter" type="button" id='G' value="G">
+ <input class="letter" type="button" id='H' value="H">
+ <input class="letter" type="button" id='I' value="I">
+ <input class="letter" type="button" id='J' value="J">
+ <input class="letter" type="button" id='K' value="K">
+ <input class="letter" type="button" id='L' value="L">
+ <input class="letter" type="button" id='M' value="M">
+ <input class="letter" type="button" id='N 'value="N">
+ <input class="letter" type="button" id='O' value="O">
+ <br><br><br>
+ <input class="letter" type="button" id='P' value="P">
+ <input class="letter" type="button" id='Q' value="Q">
+ <input class="letter" type="button" id='R' value="R">
+ <input class="letter" type="button" id='S' value="S">
+ <input class="letter" type="button" id='T' value="T">
+ <input class="letter" type="button" id='U' value="U">
+ <input class="letter" type="button" id='V' value="V">
+ <input class="letter" type="button" id='W' value="W">
+ <input class="letter" type="button" id='X' value="X">
+ <input class="letter" type="button" id='Y' value="Y">
+ <input class="letter" type="button" id='Z' value="Z">
+  <br><br><br>
+ <input id="back1" type="button" value="back1">
+ <input id="space" type="button" value=" ">
+ <input id="reset" type="button" value="reset">
+<br><br><br>
+<label>Search</label><input id="text" type="text" readonly="readonly" placeholder="Search MiTunes here">
+</body>
+</div>
+</div>
+
+ 
+    </body>
+</html>
